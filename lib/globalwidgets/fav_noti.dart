@@ -6,6 +6,8 @@ class CustomNotificationVard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List profileImages = ["", ""];
+    bool isfollow = true;
+    bool isAlreadyfollowing = true;
     return Container(
       padding: EdgeInsets.only(bottom: 8),
       child: Row(children: [
@@ -36,13 +38,22 @@ class CustomNotificationVard extends StatelessWidget {
         SizedBox(
           height: 12,
         ),
-        Text("Kareena liked your photo. 1h"),
+        Expanded(
+            child: Text(
+          "Kareena liked your photo. 1h",
+          maxLines: 3,
+          textAlign: TextAlign.justify,
+          overflow: TextOverflow.ellipsis,
+        )),
         Spacer(),
-        Container(
-          height: 44,
-          width: 44,
-          color: Colors.yellow,
-        )
+        isfollow
+            ? Container()
+            : Container(
+                height: 44,
+                width: 44,
+                // color: Colors.yellow,
+                child: Image.asset("assets/images/Icon.png"),
+              )
       ]),
     );
   }
